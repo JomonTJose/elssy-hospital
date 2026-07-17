@@ -116,7 +116,7 @@ export function Contact() {
                 height="220"
                 loading="lazy"
                 className="grayscale"
-                src="https://maps.google.com/maps?q=WP2G%2B46%20Sulikunte%20Colony%2C%20Karnataka%2C%20India&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                src="https://maps.google.com/maps?q=Elssy+Hospital,12.9003022,77.7256111&t=&z=16&ie=UTF8&iwloc=&output=embed"
               />
             </div>
           </div>

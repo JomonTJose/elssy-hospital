@@ -9,8 +9,11 @@ export const site = {
     line3: "Bengaluru 560035",
     full: "1st Main Road, Mulluru, Carmelaram P.O, Off Sarjapur Road, Bengaluru 560035",
     plusCode: "WP2G+46 Sulikunte Colony, Karnataka, India",
-    mapsUrl: "https://maps.google.com/?q=WP2G%2B46+Sulikunte+Colony,+Karnataka,+India",
+    mapsUrl:
+      "https://www.google.com/maps/place/Elssy+Hospital/@12.8936458,77.7108679,15z/data=!4m6!3m5!1s0x3bae13005d34d0f7:0xf7f13685faf3ae83!8m2!3d12.9003022!4d77.7256111!16s%2Fg%2F11y9_z9c79",
   },
+  googleReviewsUrl:
+    "https://www.google.com/maps/place/Elssy+Hospital/@12.8936458,77.7108679,15z/data=!4m6!3m5!1s0x3bae13005d34d0f7:0xf7f13685faf3ae83!8m2!3d12.9003022!4d77.7256111!16s%2Fg%2F11y9_z9c79",
   phones: [
     { label: "Reception", number: "7338348555" },
     { label: "Appointments", number: "8050474222" },
@@ -22,6 +25,7 @@ export const site = {
     facebook: "https://facebook.com/elssyhospital",
     instagram: "https://instagram.com/elssyhospital",
     linkedin: "https://linkedin.com/company/elssyhospital",
+    youtube: "https://www.youtube.com/@ElssyHospital",
   },
   hours: {
     opd: "Mon – Sat: 9:00 AM – 8:00 PM",
@@ -37,5 +41,7 @@ export const nav = [
   { label: "Laser Surgeries", to: "/laser-surgeries" },
   { label: "Health Check Ups", to: "/health-checkups" },
   { label: "Insurance", to: "/insurance" },
+  { label: "Testimonials", to: "/testimonials" },
+  { label: "Learning Series", to: "/learning-series" },
   { label: "Contact", to: "/contact" },
 ] as const;

@@ -12,7 +12,6 @@ import {
   Sparkles,
   Bone,
   ArrowRight,
-  Quote,
 } from "lucide-react";
 import { Container } from "../components/Container";
 import { SectionHeading } from "../components/SectionHeading";
@@ -52,24 +51,6 @@ const whyUs = [
   },
 ];
 
-const testimonials = [
-  {
-    quote:
-      "The laparoscopic surgery I was worried about turned out to be quick and far less painful than I expected. The team explained every step and followed up constantly after discharge.",
-    name: "Patient, Gastrointestinal Surgery",
-  },
-  {
-    quote:
-      "Booked an appointment online and was seen the same week. The doctors took time to listen instead of rushing through the visit.",
-    name: "Patient, General Medicine",
-  },
-  {
-    quote:
-      "Very fair pricing for the quality of care. The insurance desk handled my cashless claim without any hassle.",
-    name: "Patient, Orthopaedics",
-  },
-];
-
 export function Home() {
   return (
     <>
@@ -85,7 +66,7 @@ export function Home() {
           aria-hidden
           className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--color-brand-100),_transparent_60%)]"
         />
-        <Container className="relative grid grid-cols-1 items-center gap-12 py-20 lg:grid-cols-2 lg:py-28">
+        <Container className="relative grid grid-cols-1 items-center gap-12 py-14 lg:grid-cols-2 lg:py-20">
           <div>
             <p className="inline-flex items-center rounded-full bg-brand-100 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-brand-700">
               Multispecialty &amp; Laser Surgery Centre
@@ -96,21 +77,6 @@ export function Home() {
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-slate-600">
               {site.tagline}
             </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <Button to="/contact" variant="accent" icon={<CalendarPlus size={18} />}>
-                Book an Appointment
-              </Button>
-              <Button to={`tel:${site.primaryPhone}`} variant="outline" icon={<Phone size={18} />}>
-                {site.primaryPhone}
-              </Button>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-slate-500">
-              <span>{site.hours.emergency}</span>
-              <span className="hidden sm:inline">&middot;</span>
-              <span>Cashless Insurance Accepted</span>
-              <span className="hidden sm:inline">&middot;</span>
-              <span>Off Sarjapur Road, Bengaluru</span>
-            </div>
           </div>
 
           <div className="relative">
@@ -142,14 +108,14 @@ export function Home() {
       </section>
 
       {/* Why choose us */}
-      <section className="py-20">
+      <section className="pt-10 pb-20">
         <Container>
           <SectionHeading
             eyebrow="Why Choose Elssy Hospital"
             title="Healthcare built around you"
             description="We combine modern minimally invasive techniques with a personal, human approach to every patient's care."
           />
-          <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
             {whyUs.map((item) => (
               <div key={item.title} className="rounded-2xl border border-slate-100 p-8 shadow-sm">
                 <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50 text-brand-700">
@@ -213,21 +179,18 @@ export function Home() {
 
       {/* Testimonials */}
       <section className="py-20">
-        <Container>
-          <SectionHeading eyebrow="Patient Stories" title="Trusted by the community we serve" />
-          <div className="mt-14 grid grid-cols-1 gap-6 md:grid-cols-3">
-            {testimonials.map((t) => (
-              <figure key={t.name} className="rounded-2xl border border-slate-100 p-8 shadow-sm">
-                <Quote className="text-accent-300" size={28} />
-                <blockquote className="mt-4 text-sm leading-relaxed text-slate-700">
-                  "{t.quote}"
-                </blockquote>
-                <figcaption className="mt-5 text-sm font-semibold text-brand-800">
-                  {t.name}
-                </figcaption>
-              </figure>
-            ))}
-          </div>
+        <Container className="flex flex-col items-center gap-5 text-center">
+          <SectionHeading
+            eyebrow="Patient Stories"
+            title="Trusted by the community we serve"
+            description="Read real patient testimonials and Google reviews from people we've cared for."
+          />
+          <Link
+            to="/testimonials"
+            className="inline-flex items-center gap-2 rounded-full bg-brand-700 px-6 py-3 text-sm font-semibold text-white hover:bg-brand-800"
+          >
+            Read Testimonials &amp; Reviews
+          </Link>
         </Container>
       </section>
     </>

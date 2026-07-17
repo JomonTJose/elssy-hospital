@@ -15,9 +15,87 @@ const links = [
   { label: "Contact", to: "/contact" },
 ];
 
+const resourceLinks = [
+  { label: "Testimonials", to: "/testimonials" },
+  { label: "Learning Series", to: "/learning-series" },
+];
+
+function DesktopDropdown({
+  label,
+  to,
+  items,
+  navLinkClass,
+}: {
+  label: string;
+  to: string;
+  items: { label: string; to: string }[];
+  navLinkClass: (props: { isActive: boolean }) => string;
+}) {
+  return (
+    <div className="group relative">
+      <NavLink to={to} className={navLinkClass}>
+        <span className="flex items-center gap-1">
+          {label} <ChevronDown size={14} />
+        </span>
+      </NavLink>
+      <div className="invisible absolute left-1/2 top-full z-20 w-64 -translate-x-1/2 pt-3 opacity-0 transition-all group-hover:visible group-hover:opacity-100">
+        <div className="rounded-2xl border border-slate-100 bg-white p-2 shadow-xl">
+          {items.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              className="block rounded-lg px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-700"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function MobileExpandable({
+  label,
+  items,
+  onNavigate,
+}: {
+  label: string;
+  items: { label: string; to: string }[];
+  onNavigate: () => void;
+}) {
+  const [open, setOpen] = useState(false);
+  return (
+    <>
+      <button
+        type="button"
+        className="flex items-center justify-between rounded-lg px-3 py-2.5 text-base font-semibold text-slate-700"
+        onClick={() => setOpen((v) => !v)}
+        aria-expanded={open ? "true" : "false"}
+      >
+        {label}
+        <ChevronDown size={18} className={open ? "rotate-180" : ""} />
+      </button>
+      {open && (
+        <div className="ml-3 flex flex-col gap-1 border-l-2 border-brand-100 pl-3">
+          {items.map((item) => (
+            <Link
+              key={item.to}
+              to={item.to}
+              onClick={onNavigate}
+              className="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-brand-50 hover:text-brand-700"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </div>
+      )}
+    </>
+  );
+}
+
 export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [mobileDeptOpen, setMobileDeptOpen] = useState(false);
 
   useEffect(() => {
     setMobileOpen(false);
@@ -27,6 +105,8 @@ export function Header() {
     `text-sm font-semibold transition-colors ${
       isActive ? "text-brand-700" : "text-slate-700 hover:text-brand-700"
     }`;
+
+  const departmentItems = departments.map((d) => ({ label: d.name, to: `/departments/${d.slug}` }));
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur shadow-sm">
@@ -53,10 +133,8 @@ export function Header() {
       </div>
 
       <Container className="flex items-center justify-between py-4">
-        <Link to="/" className="flex items-center gap-2.5">
-          <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-700 text-lg font-bold text-white">
-            E
-          </span>
+        <Link to="/" className="flex items-center gap-3">
+          <img src="/logo.svg" alt="Elssy Hospital logo" className="h-14 w-auto rounded-lg" />
           <span className="flex flex-col leading-tight">
             <span className="font-serif-display text-xl font-semibold text-brand-950">
               {site.name}
@@ -75,26 +153,7 @@ export function Header() {
             About Us
           </NavLink>
 
-          <div className="group relative">
-            <NavLink to="/departments" className={navLinkClass}>
-              <span className="flex items-center gap-1">
-                Departments <ChevronDown size={14} />
-              </span>
-            </NavLink>
-            <div className="invisible absolute left-1/2 top-full z-20 w-72 -translate-x-1/2 pt-3 opacity-0 transition-all group-hover:visible group-hover:opacity-100">
-              <div className="rounded-2xl border border-slate-100 bg-white p-2 shadow-xl">
-                {departments.map((d) => (
-                  <Link
-                    key={d.slug}
-                    to={`/departments/${d.slug}`}
-                    className="block rounded-lg px-4 py-2.5 text-sm font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-700"
-                  >
-                    {d.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
+          <DesktopDropdown label="Departments" to="/departments" items={departmentItems} navLinkClass={navLinkClass} />
 
           <NavLink to="/doctors" className={navLinkClass}>
             Doctors
@@ -108,6 +167,9 @@ export function Header() {
           <NavLink to="/insurance" className={navLinkClass}>
             Insurance
           </NavLink>
+
+          <DesktopDropdown label="Resources" to="/testimonials" items={resourceLinks} navLinkClass={navLinkClass} />
+
           <NavLink to="/contact" className={navLinkClass}>
             Contact
           </NavLink>
@@ -142,27 +204,11 @@ export function Header() {
               </NavLink>
             ))}
 
-            <button
-              className="flex items-center justify-between rounded-lg px-3 py-2.5 text-base font-semibold text-slate-700"
-              onClick={() => setMobileDeptOpen((v) => !v)}
-            >
-              Departments
-              <ChevronDown size={18} className={mobileDeptOpen ? "rotate-180" : ""} />
-            </button>
-            {mobileDeptOpen && (
-              <div className="ml-3 flex flex-col gap-1 border-l-2 border-brand-100 pl-3">
-                {departments.map((d) => (
-                  <Link
-                    key={d.slug}
-                    to={`/departments/${d.slug}`}
-                    onClick={() => setMobileOpen(false)}
-                    className="rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-brand-50 hover:text-brand-700"
-                  >
-                    {d.name}
-                  </Link>
-                ))}
-              </div>
-            )}
+            <MobileExpandable
+              label="Departments"
+              items={departmentItems}
+              onNavigate={() => setMobileOpen(false)}
+            />
 
             {links.slice(2).map((l) => (
               <NavLink
@@ -178,6 +224,12 @@ export function Header() {
                 {l.label}
               </NavLink>
             ))}
+
+            <MobileExpandable
+              label="Resources"
+              items={resourceLinks}
+              onNavigate={() => setMobileOpen(false)}
+            />
           </Container>
         </div>
       )}

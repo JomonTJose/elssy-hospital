@@ -12,6 +12,8 @@ import { DepartmentDetail } from "./pages/DepartmentDetail";
 import { LaserSurgeries } from "./pages/LaserSurgeries";
 import { HealthCheckUps } from "./pages/HealthCheckUps";
 import { Insurance } from "./pages/Insurance";
+import { Testimonials } from "./pages/Testimonials";
+import { LearningSeries } from "./pages/LearningSeries";
 import { Contact } from "./pages/Contact";
 import { NotFound } from "./pages/NotFound";
 
@@ -30,6 +32,8 @@ function App() {
           <Route path="/laser-surgeries" element={<LaserSurgeries />} />
           <Route path="/health-checkups" element={<HealthCheckUps />} />
           <Route path="/insurance" element={<Insurance />} />
+          <Route path="/testimonials" element={<Testimonials />} />
+          <Route path="/learning-series" element={<LearningSeries />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

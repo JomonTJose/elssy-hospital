@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { Container } from "./Container";
-import { FacebookIcon, InstagramIcon, LinkedinIcon } from "./SocialIcons";
+import { FacebookIcon, InstagramIcon, LinkedinIcon, YoutubeIcon } from "./SocialIcons";
 import { site, nav } from "../data/site";
 import { departments } from "../data/departments";
 
@@ -10,10 +10,8 @@ export function Footer() {
     <footer className="border-t border-brand-100 bg-brand-50/70 text-brand-900">
       <Container className="grid grid-cols-1 gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
-          <div className="flex items-center gap-2.5">
-            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-700 text-lg font-bold text-white">
-              E
-            </span>
+          <div className="flex items-center gap-3">
+            <img src="/logo.svg" alt="Elssy Hospital logo" className="h-14 w-auto rounded-lg" />
             <span className="font-serif-display text-xl font-semibold text-brand-950">
               {site.name}
             </span>
@@ -48,6 +46,15 @@ export function Footer() {
               className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-brand-700 shadow-sm ring-1 ring-brand-100 hover:bg-accent-500 hover:text-white"
             >
               <LinkedinIcon size={16} />
+            </a>
+            <a
+              href={site.socials.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white text-brand-700 shadow-sm ring-1 ring-brand-100 hover:bg-accent-500 hover:text-white"
+            >
+              <YoutubeIcon size={16} />
             </a>
           </div>
         </div>
