@@ -1,0 +1,53 @@
+@import "tailwindcss";
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Lora:wght@500;600;700&display=swap");
+
+@theme {
+  --font-sans: "Manrope", system-ui, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Lora", Georgia, serif;
+
+  /* Brand: deep clinical teal-blue (trust) + healing green (accent/CTA) */
+  --color-brand-50: #eef7f7;
+  --color-brand-100: #d7ebec;
+  --color-brand-200: #b2d8da;
+  --color-brand-300: #82bec2;
+  --color-brand-400: #4d9da3;
+  --color-brand-500: #2c7f87;
+  --color-brand-600: #1f636c;
+  --color-brand-700: #124e56;
+  --color-brand-800: #0d3b41;
+  --color-brand-900: #0a2c31;
+  --color-brand-950: #051a1d;
+
+  --color-accent-50: #eefcf3;
+  --color-accent-100: #d6f7e0;
+  --color-accent-200: #aeedc4;
+  --color-accent-300: #79dda2;
+  --color-accent-400: #45c67e;
+  --color-accent-500: #22a862;
+  --color-accent-600: #16874e;
+  --color-accent-700: #146b42;
+  --color-accent-800: #135538;
+  --color-accent-900: #114630;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  color: var(--color-brand-950);
+  background: #ffffff;
+}
+
+::selection {
+  background: var(--color-accent-200);
+  color: var(--color-brand-950);
+}
+
+@layer utilities {
+  .font-serif-display {
+    font-family: var(--font-serif);
+  }
+}
