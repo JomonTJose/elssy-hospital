@@ -14,6 +14,7 @@ import { HealthCheckUps } from "./pages/HealthCheckUps";
 import { Insurance } from "./pages/Insurance";
 import { Testimonials } from "./pages/Testimonials";
 import { LearningSeries } from "./pages/LearningSeries";
+import { BookAppointment } from "./pages/BookAppointment";
 import { Contact } from "./pages/Contact";
 import { NotFound } from "./pages/NotFound";
 
@@ -34,6 +35,7 @@ function App() {
           <Route path="/insurance" element={<Insurance />} />
           <Route path="/testimonials" element={<Testimonials />} />
           <Route path="/learning-series" element={<LearningSeries />} />
+          <Route path="/book-appointment" element={<BookAppointment />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

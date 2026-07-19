@@ -117,7 +117,7 @@ export function About() {
       </section>
 
       <CtaStrip title="Experience healthcare that puts you first" align="center">
-        <Button to="/contact" variant="accent">
+        <Button to="/book-appointment" variant="accent">
           Book an Appointment
         </Button>
       </CtaStrip>

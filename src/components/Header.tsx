@@ -123,7 +123,7 @@ export function Header() {
               <Phone size={13} /> {site.phones[0].number} / {site.phones[1].number}
             </a>
             <Link
-              to="/contact"
+              to="/book-appointment"
               className="flex items-center gap-1.5 rounded-full bg-accent-500 px-4 py-1.5 text-xs font-bold text-white hover:bg-accent-600"
             >
               <CalendarPlus size={13} /> Book Appointment

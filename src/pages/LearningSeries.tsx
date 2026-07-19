@@ -62,7 +62,7 @@ export function LearningSeries() {
         description="Book a consultation and talk to our specialists directly."
         align="center"
       >
-        <Button to="/contact" variant="accent" icon={<CalendarPlus size={18} />}>
+        <Button to="/book-appointment" variant="accent" icon={<CalendarPlus size={18} />}>
           Book Appointment
         </Button>
       </CtaStrip>

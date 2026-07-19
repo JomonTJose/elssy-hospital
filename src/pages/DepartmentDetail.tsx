@@ -111,7 +111,7 @@ export function DepartmentDetail() {
                 {department.name.toLowerCase()} team.
               </p>
               <div className="mt-5">
-                <Button to="/contact" icon={<CalendarPlus size={16} />} className="w-full">
+                <Button to="/book-appointment" icon={<CalendarPlus size={16} />} className="w-full">
                   Book Appointment
                 </Button>
               </div>

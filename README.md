@@ -29,6 +29,27 @@ pnpm preview   # preview the production build
   edit these files to update copy without touching page markup
 - `public/` — favicon, `robots.txt`, `sitemap.xml`
 
+## Appointment booking
+
+The Book Appointment page (`/book-appointment`) walks patients through
+department → doctor → time slot. Scheduling is powered by **Cal.com**
+(embedded via `@calcom/embed-react`) as a stop-gap until the planned
+in-house, on-prem booking backend is built.
+
+To activate live slot booking:
+
+1. Create a free team account at [cal.com](https://cal.com), add each doctor
+   as a user, and create an event type per consultation (e.g. "OPD
+   Consultation", working hours Mon–Sat 9:00–20:00).
+2. Paste each event link into the matching `calLink` in
+   `src/data/booking.ts` (e.g. `"elssy-hospital/dr-tinnu-george-opd"`).
+3. Doctors with `calLink: null` automatically show a call/WhatsApp/request
+   fallback instead of the slot picker.
+
+The integration is deliberately isolated: when the on-prem system is ready,
+only `src/components/BookingWidget.tsx` and `src/data/booking.ts` need to
+change — the page flow and site-wide CTAs stay as they are.
+
 ## Content notes
 
 - Only one doctor profile (Dr. Tinnu George) was published on the live site

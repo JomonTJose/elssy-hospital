@@ -32,7 +32,7 @@ export function Testimonials() {
         description="Book a consultation and experience the Elssy Hospital difference for yourself."
         align="center"
       >
-        <Button to="/contact" variant="accent" icon={<CalendarPlus size={18} />}>
+        <Button to="/book-appointment" variant="accent" icon={<CalendarPlus size={18} />}>
           Book Appointment
         </Button>
       </CtaStrip>

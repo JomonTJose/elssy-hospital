@@ -169,7 +169,7 @@ export function Home() {
         title="Ready to feel better? Let's talk."
         description="Book an appointment online or call us directly — our team responds fast."
       >
-        <Button to="/contact" variant="accent" icon={<CalendarPlus size={18} />}>
+        <Button to="/book-appointment" variant="accent" icon={<CalendarPlus size={18} />}>
           Book Appointment
         </Button>
         <Button to={`tel:${site.primaryPhone}`} variant="outline" icon={<Phone size={18} />}>

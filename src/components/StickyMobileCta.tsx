@@ -12,7 +12,7 @@ export function StickyMobileCta() {
         <Phone size={17} /> Call Now
       </a>
       <Link
-        to="/contact"
+        to="/book-appointment"
         className="flex flex-1 items-center justify-center gap-2 bg-accent-500 py-3.5 text-sm font-semibold text-white"
       >
         <CalendarPlus size={17} /> Book Appointment

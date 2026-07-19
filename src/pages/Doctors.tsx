@@ -69,7 +69,7 @@ export function Doctors() {
                     </div>
 
                     <div className="mt-6">
-                      <Button to="/contact" icon={<CalendarPlus size={16} />}>
+                      <Button to="/book-appointment" icon={<CalendarPlus size={16} />}>
                         Book with {doc.name.split(" ").slice(-1)[0]}
                       </Button>
                     </div>

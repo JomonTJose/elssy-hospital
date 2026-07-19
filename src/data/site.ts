@@ -43,5 +43,6 @@ export const nav = [
   { label: "Insurance", to: "/insurance" },
   { label: "Testimonials", to: "/testimonials" },
   { label: "Learning Series", to: "/learning-series" },
+  { label: "Book Appointment", to: "/book-appointment" },
   { label: "Contact", to: "/contact" },
 ] as const;

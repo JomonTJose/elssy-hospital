@@ -21,7 +21,7 @@ export function LaserSurgeries() {
         title="Precision surgery, minimal downtime"
         description="Laser surgery provides precision and minimal invasiveness, causing minimal damage to surrounding tissue, reducing recovery time and leading to less scarring than traditional surgery."
         actions={
-          <Button to="/contact" variant="accent" icon={<CalendarPlus size={18} />}>
+          <Button to="/book-appointment" variant="accent" icon={<CalendarPlus size={18} />}>
             Book a Consultation
           </Button>
         }
@@ -57,7 +57,7 @@ export function LaserSurgeries() {
         description="Speak to our surgical team for a personalised evaluation and treatment plan."
         align="center"
       >
-        <Button to="/contact" variant="accent">
+        <Button to="/book-appointment" variant="accent">
           Book Appointment
         </Button>
       </CtaStrip>
